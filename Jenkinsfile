@@ -9,6 +9,12 @@ pipeline {
 		expression { params.Produce_deb == true }
 	    }
 
+	    agent {
+		docker {
+		    image 'alpine:latest'
+		}
+	    }
+
 	    environment {
 		DEBVAR = 'yep'
 	    }
