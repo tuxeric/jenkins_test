@@ -24,7 +24,7 @@ pipeline {
 
 	    steps {
 		sh 'echo ${DEBVAR}'
-		sh 'ls -al /root'
+		sh 'ls -al /'
 	    }
 	}
 
