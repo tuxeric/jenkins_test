@@ -1,10 +1,13 @@
 pipeline {
     agent any
     parameters {
-	booleanParam(name: 'Produce_deb', defaultValue: false, description: '') 
+	booleanParam(name: 'Produce_deb', defaultValue: false, description: 'Should we produce the deb package') 
     }
     stages {
 	stage ('Build Deb') {
+	    when {
+		expression { params.Produce_deb == true }
+	    }
 
 	    environment {
 		DEBVAR = 'yep'
@@ -16,6 +19,9 @@ pipeline {
 	}
 
 	stage ('Build NonDeb') {
+	    when {
+		expression { params.Produce_deb == false }
+	    }
 
 	    environment {
 		DEBVAR = 'nop'
