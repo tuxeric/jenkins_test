@@ -1,4 +1,7 @@
 pipeline {
+    options {
+	buildDiscarder(logRotator(numToKeepStr: '1', artifactNumToKeepStr: '1'))
+    }
     agent any
     parameters {
 	booleanParam(name: 'Produce_deb', defaultValue: false, description: 'Should we produce the deb package') 
@@ -21,6 +24,7 @@ pipeline {
 
 	    steps {
 		sh 'echo ${DEBVAR}'
+		sh 'pwd'
 	    }
 	}
 
