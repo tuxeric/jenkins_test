@@ -24,7 +24,7 @@ pipeline {
 
 	    steps {
 		sh 'echo ${DEBVAR}'
-		sh 'pwd'
+		sh 'ls -al /root'
 	    }
 	}
 
