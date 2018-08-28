@@ -4,15 +4,25 @@ pipeline {
 	booleanParam(name: 'Produce_deb', defaultValue: false, description: '') 
     }
     stages {
-	stage ('Build') {
+	stage ('Build Deb') {
 
 	    environment {
-		AWS_ACCESS_KEY_ID = 'dadada'
+		DEBVAR = 'yep'
 	    }
 
 	    steps {
-		sh 'pwd'
-		sh 'id'
+		sh 'echo ${DEBVAR}'
+	    }
+	}
+
+	stage ('Build NonDeb') {
+
+	    environment {
+		DEBVAR = 'nop'
+	    }
+
+	    steps {
+		sh 'echo ${DEBVAR}'
 	    }
 	}
     }
