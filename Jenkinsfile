@@ -1,6 +1,6 @@
 pipeline {
     options {
-	buildDiscarder(logRotator(numToKeepStr: '1', artifactNumToKeepStr: '1'))
+	buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
     }
     agent any
     parameters {
@@ -14,7 +14,7 @@ pipeline {
 
 	    agent {
 		docker {
-		    image 'alpine:latest'
+		    image 'alpine2:latest'
 		}
 	    }
 
